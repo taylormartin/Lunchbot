@@ -1,0 +1,3 @@
+class ReviewsConroller < ApplicationController
+
+end

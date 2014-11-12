@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-    def flash_class name
+  def flash_class name
     # Translate rails conventions to bootstrap conventions
   case name.to_sym
     when :notice
