@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: lunch_app_dev
+  pool: 5
+
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: lunch_app_test
+  pool: 5
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: lunch_app
+  pool: 5
