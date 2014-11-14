@@ -1,0 +1,17 @@
+
+
+- if @restaurants == []
+	%h3 You have reviewed all the restaurants in the system
+- else
+	%h4
+		Fill out the form below to review a restaurant.
+	= form_for @review, url: {action: "create"}, html: {class: "form"} do |f|
+		%h5 Rating:
+		= f.number_field :rating
+		%br
+		%br
+		%h5 Restaurant:
+		= f.collection_select :restaurant_id, @restaurants, :id, :name
+		%br
+		%br
+		= f.submit "Submit", class: "btn btn-primary"

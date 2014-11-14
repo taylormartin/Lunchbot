@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title New Story
+    %title Lunchbot
     = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
     = stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
     = stylesheet_link_tag 'application', media: 'all'
@@ -20,7 +20,10 @@
 
         %ul.nav.navbar-nav
           - if current_user
-            -# %li= link_to "Profile", profile_path
+            %li= link_to "Restaurant List", restaurants_path
+            %li= link_to "Add Restaurant", new_restaurant_path
+            %li= link_to "Your Reviews", reviews_path
+            %li= link_to "New Review", new_review_path
 
         %ul.nav.navbar-nav.pull-right
           - if current_user

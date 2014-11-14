@@ -2,7 +2,7 @@ class Restaurant < ActiveRecord::Base
 	validates :name, presence: true, uniqueness: true
 	has_many :reviews
 
-	def avg_rating
+	def refresh_avg_rating
 		reviews = self.reviews
 		ratings = []
 		reviews.each do |rev|

@@ -26,8 +26,8 @@ gem 'devise'
 gem 'cancancan'
 
 group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
   gem 'erb2haml'
   gem 'quiet_assets'
   gem 'spring'
@@ -47,8 +47,6 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
-  gem 'selenium-webdriver'
-  gem 'database_cleaner'
 end
 
 group :production do

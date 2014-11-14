@@ -1,0 +1,11 @@
+%h5
+	= "#{@review.restaurant.name}"
+%h5
+	= "Current Rating: #{@review.rating}"
+%br
+=form_for(@review, url: review_path(@review), html: {method: "patch"} ) do |f|
+	%h5 New Rating:
+	= f.number_field :rating
+	%br
+	%br
+	= f.submit "Submit", class: "btn btn-primary"

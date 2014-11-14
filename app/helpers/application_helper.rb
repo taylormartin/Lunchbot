@@ -6,7 +6,7 @@ module ApplicationHelper
     when :notice
       :success
     when :alert
-      :error
+      :danger
     else
       name
     end

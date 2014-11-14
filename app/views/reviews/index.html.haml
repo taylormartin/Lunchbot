@@ -1,0 +1,9 @@
+%h5
+	Below is a list of your current reviews. If you
+	would like to edit one of them just click on it.
+
+- unless @reviews == nil
+	- @reviews.each do |review|
+		%h3= "#{review.restaurant.name}"
+		%h4= "Rating: #{review.rating}"
+		%h4=link_to "Edit", edit_review_path(id: review.id)
