@@ -17,6 +17,17 @@ class RestaurantsController < ApplicationController
 		end
 	end
 
+	def visited
+		if params["visited"] == nil
+			redirect_to root_path, alert: "You forgot to check that you visited the restaurant"
+		elsif params["visited"] == "visited"
+			restaurant = Restaurant.find_by_id(params[:restaurant_id])
+			restaurant.last_visit = Date.today
+			restaurant.save!
+			redirect_to root_path, notice: "Your visit was saved"
+		end
+	end
+
 private
 
 	def restaurant_create_params

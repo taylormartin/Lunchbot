@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   resources :restaurants
   resources :reviews
 
+  post '/visited', to: 'restaurants#visited', as: 'visited'
+  get  '/new_spot', to: 'home#new_spot', as: 'new_spot'
+
   root to: "home#index"
 end
