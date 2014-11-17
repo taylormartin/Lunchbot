@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.visited {
+    font-size: 250%;
+    padding-left: 10px;
+}
+
+input[type=checkbox]
+{
+	transform: scale(1.5);
+}

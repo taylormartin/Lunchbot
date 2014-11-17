@@ -21,9 +21,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'pg'
 gem 'haml-rails'
-gem 'stripe'
 gem 'devise'
-gem 'cancancan'
 
 group :development do
   # gem 'better_errors'
@@ -33,7 +31,6 @@ group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'annotate'
-  gem 'letter_opener'
 end
 
 group :development, :test do

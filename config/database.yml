@@ -1,7 +1,8 @@
+
 development:
   adapter: postgresql
   encoding: utf8
-  database: lunch_app_dev
+  database: lunchbot_dev
   pool: 5
 
 
@@ -9,11 +10,11 @@ test:
   adapter: postgresql
   encoding: utf8
   reconnect: false
-  database: lunch_app_test
+  database: lunchbot_app_test
   pool: 5
 
 production:
   adapter: postgresql
   encoding: utf8
-  database: lunch_app
+  database: lunchbot_app
   pool: 5

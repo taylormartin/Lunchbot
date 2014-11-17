@@ -1,10 +1,10 @@
-%h5
+%h4
 	= "#{@review.restaurant.name}"
-%h5
+%h4
 	= "Current Rating: #{@review.rating}"
 %br
 =form_for(@review, url: review_path(@review), html: {method: "patch"} ) do |f|
-	%h5 New Rating:
+	= f.label :rating, "New Rating:"
 	= f.number_field :rating
 	%br
 	%br

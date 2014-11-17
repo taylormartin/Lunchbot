@@ -1,28 +1,18 @@
-/ Realisticly, @lunch_spot should only ever be set to nil once
-/ and that's when the applicatoin is used for the first time, and 
-/ no restaurants have the "current" column set to true.
--if @lunch_spot == nil
-	.jumbotron
-		%h1
-			Please click "Update-Lunch-Spot" on the menu bar
-			to get a selection for lunch today.
+.jumbotron
+	%h1
+		= "Today's Lunch Spot -> #{@lunch_spot.name}!"
 
-- else
-	.jumbotron
-		%h1
-			= "Today's Lunch Spot -> #{@lunch_spot.name}!"
+%h2 
+	If you visited this restaurant today, please indicate this
+	by checking the box below, and submitting your response to
+	the database.
 
-	%h2 
-		If you visited this restaurant today, please indicate this
-		by checking the box below, and submitting your response to
-		the database.
-
-	.well
-		%form{:action => "visited", method: "post"}
-			= hidden_field_tag :authenticity_token, form_authenticity_token
-			= hidden_field_tag :restaurant_id, @lunch_spot.id
-			%label{:for => "visited"} Visited
-			%input{name: "visited", type: "checkbox", value: "visited"}
-			%br
-			%br
-			%input.btn.btn-primary{:type => "submit", :value => "Submit"}
+.well
+	%form{:action => "visited", method: "post"}
+		= hidden_field_tag :authenticity_token, form_authenticity_token
+		= hidden_field_tag :restaurant_id, @lunch_spot.id
+		%input{name: "visited", type: "checkbox", value: "visited"}
+		%label.visited{:for => "visited" } Visited
+		%br
+		%br
+		%input.btn.btn-primary{:type => "submit", :value => "Submit"}

@@ -1,25 +1,31 @@
-# Test factories
-# from https://github.com/thoughtbot/factory_girl/wiki/Testing-all-Factories-%28with-RSpec%29
-require 'spec_helper'
+require 'rails_helper' 
 
-FactoryGirl.factories.map(&:name).each do |factory_name|
-  describe "Factory :#{factory_name}" do
-    it 'is valid' do
-      factory = FactoryGirl.build(factory_name)
-      if factory.respond_to?(:valid?)
-        expect(factory).to be_valid, lambda { factory.errors.full_messages.join(',') }
-      end
-    end
-  end
+# If using RSpec 2.x, remove `RSpec.`
+describe "Factory Girl" do
+  FactoryGirl.factories.map(&:name).each do |factory_name|
+    describe "#{factory_name} factory" do
 
-  describe "Factory :#{factory_name} with trait" do
-    FactoryGirl.factories[factory_name].definition.defined_traits.map(&:name).each do |trait_name|
-      it ":#{trait_name} is valid" do
-        factory = FactoryGirl.build(factory_name, trait_name)
+      # Test each factory
+      it "is valid" do
+        factory = FactoryGirl.build(factory_name)
         if factory.respond_to?(:valid?)
-          expect(factory).to be_valid, lambda { factory.errors.full_messages.join(',') }
+          # the lamba syntax only works with rspec 2.14 or newer;  for earlier versions, you have to call #valid? before calling the matcher, otherwise the errors will be empty
+          expect(factory).to be_valid, lambda { factory.errors.full_messages.join("\n") }
         end
       end
+
+      # Test each trait
+      FactoryGirl.factories[factory_name].definition.defined_traits.map(&:name).each do |trait_name|
+        context "with trait #{trait_name}" do
+          it "is valid" do
+            factory = FactoryGirl.build(factory_name, trait_name)
+            if factory.respond_to?(:valid?)
+              expect(factory).to be_valid, lambda { factory.errors.full_messages.join("\n") }
+            end
+          end
+        end
+      end
+
     end
   end
 end

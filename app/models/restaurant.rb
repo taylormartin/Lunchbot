@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: restaurants
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  avg_rating :float
+#  last_visit :date
+#  created_at :datetime
+#  updated_at :datetime
+#  current    :boolean          default(FALSE)
+#
+
 class Restaurant < ActiveRecord::Base
 	validates :name, presence: true, uniqueness: true
 	has_many :reviews

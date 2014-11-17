@@ -3,7 +3,8 @@
 %br
 
 = form_for @restaurant, url: {action: "create"}, html: {class: "form"} do |f|
-	%h4 Restaurant Name:
+	= f.label :name
+	%br
 	= f.text_field :name
 	%br
 	%br
