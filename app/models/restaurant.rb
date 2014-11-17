@@ -48,7 +48,7 @@ class Restaurant < ActiveRecord::Base
 	end
 
 	def self.query_one (rating, day_count)
-		res_array = Restaurant.where("avg_rating > ? AND last_visit < ?", rating, Date.today - day_count.days)
+		res_array = Restaurant.where("avg_rating >= ? AND last_visit < ?", rating, Date.today - day_count.days)
 		res_array.sample
 	end
 
