@@ -16,7 +16,7 @@ class HomeController < ApplicationController
   		redirect_to root_path, alert: "First you need to add some restaurants to the database"
   	else
 	  	Restaurant.update_lunch_spot
-	  	redirect_to root_path
+	  	redirect_to root_path, notice: "Your lunch spot has been updated"
   	end
   end
 

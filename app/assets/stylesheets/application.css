@@ -19,7 +19,7 @@
     padding-left: 10px;
 }
 
-input[type=checkbox]
+.visited-checkbox
 {
 	transform: scale(1.5);
 }

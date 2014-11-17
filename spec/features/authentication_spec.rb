@@ -8,7 +8,6 @@ feature 'Authentication' do
 		end
 
 		it 'has logged the user in' do
-			expect(page).to have_content "Signed in successfully"
 			expect(page).to have_content @user.email
 		end
 	end

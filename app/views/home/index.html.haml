@@ -11,7 +11,7 @@
 	%form{:action => "visited", method: "post"}
 		= hidden_field_tag :authenticity_token, form_authenticity_token
 		= hidden_field_tag :restaurant_id, @lunch_spot.id
-		%input{name: "visited", type: "checkbox", value: "visited"}
+		%input.visited-checkbox{name: "visited", type: "checkbox", value: "visited"}
 		%label.visited{:for => "visited" } Visited
 		%br
 		%br
