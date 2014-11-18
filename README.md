@@ -10,7 +10,7 @@ app locally.
 
 ###Note About Changing Lunchspots Each Day
 
-There is an option on the menu bar called "Update-Lunch-Spot". This is what will change the lunch spot each day. Ideally, if I were going to really use this app, I
+There is an option on the menu bar called "Update-Lunch-Spot". This is what will change the "current" lunch spot in the system. Ideally, if I were going to really use this app, I
 would create a side job using something like Sidekiq, Sidetiq, and Redis to run this "Update-Lunch-Spot" action every night, so that when users went into the 
 application each day to see what's for lunch the place would be updated and they wouldn't have to click anything. Since you guys said to focus more on the algorithm that is picking the spots, it didn't
 seem practical to use time to create this nightly job. Also, it takes two dynos on Heroku to do that and Heroku charges for multiple dynos.
