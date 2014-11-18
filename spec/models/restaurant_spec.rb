@@ -27,5 +27,35 @@ describe Restaurant do
 		restaurant2 = create(:restaurant, avg_rating: 4, last_visit: Date.today - 4.days)
 		expect(Restaurant.get_lunch_spot).to eq restaurant1
 	end
+
+	it "algorithm test three" do
+		restaurant1 = create(:restaurant, avg_rating: 4, last_visit: Date.today - 4.days)
+		restaurant2 = create(:restaurant, avg_rating: 3, last_visit: Date.today - 4.days)
+		expect(Restaurant.get_lunch_spot).to eq restaurant1
+	end
+
+	it "algorithm test four" do
+		restaurant1 = create(:restaurant, avg_rating: 3, last_visit: Date.today - 4.days)
+		restaurant2 = create(:restaurant, avg_rating: 2.5, last_visit: Date.today - 4.days)
+		expect(Restaurant.get_lunch_spot).to eq restaurant1
+	end
+
+	it "algorithm test five" do
+		restaurant1 = create(:restaurant, avg_rating: 2.5, last_visit: Date.today - 4.days)
+		restaurant2 = create(:restaurant, avg_rating: 3, last_visit: Date.today - 2.days)
+		expect(Restaurant.get_lunch_spot).to eq restaurant1
+	end
+
+	it "algorithm test six" do
+		restaurant1 = create(:restaurant, avg_rating: 2.5, last_visit: Date.today - 2.days)
+		restaurant2 = create(:restaurant, avg_rating: 1, last_visit: Date.today - 2.days)
+		expect(Restaurant.get_lunch_spot).to eq restaurant1
+	end
+
+	it "algorithm test seven" do
+		restaurant1 = create(:restaurant, avg_rating: 1, last_visit: Date.today - 2.days)
+		restaurant2 = create(:restaurant, avg_rating: 1, last_visit: Date.today - 1.days)
+		expect(Restaurant.get_lunch_spot).to eq restaurant1
+	end
 	
 end
