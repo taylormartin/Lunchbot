@@ -27,4 +27,11 @@ describe ReviewsController do
 		expect( Review.first.rating ).to eq 4
 	end
 
+	it 'allows users to delete reviews' do
+		review = create(:review, user_id: @user.id)
+		expect(Review.all.count).to eq 1
+		delete :destroy, id: review.id
+		expect(Review.all.count).to eq 0
+	end
+
 end

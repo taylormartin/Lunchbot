@@ -37,10 +37,14 @@ class ReviewsController < ApplicationController
 	def destroy
 		id = params["id"]
 		review = Review.find_by_id(id)
-		restaurant = review.restaurant
-		review.destroy
-		restaurant.refresh_avg_rating
-		redirect_to root_path, notice: "Your review was deleted"
+		if review.user.id != current_user.id
+			redirect_to root_path, alert: "Busted, you can't delete other people's reviews to change the lunch spot ratings"
+		else
+			restaurant = review.restaurant
+			review.destroy
+			restaurant.refresh_avg_rating
+			redirect_to root_path, notice: "Your review was deleted"
+		end
 	end
 
 private

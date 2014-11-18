@@ -19,4 +19,11 @@ describe RestaurantsController do
     expect( Restaurant.first.name ).to eq "McDonalds"
   end
 
+  it "allows users to delete restaurants" do
+    restaurant = create :restaurant
+    expect(Restaurant.all.count).to eq 1
+    delete :destroy, id: restaurant.id
+    expect(Restaurant.all.count).to eq 0
+  end
+
 end
