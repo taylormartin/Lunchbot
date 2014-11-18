@@ -13,7 +13,7 @@
 
 class Restaurant < ActiveRecord::Base
 	validates :name, presence: true, uniqueness: true
-	has_many :reviews
+	has_many :reviews, dependent: :destroy
 
 	def refresh_avg_rating
 		ratings = self.reviews.map { |r| r.rating }

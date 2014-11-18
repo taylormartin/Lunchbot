@@ -28,6 +28,13 @@ class RestaurantsController < ApplicationController
 		end
 	end
 
+	def destroy
+		id = params["id"]
+		restaurant = Restaurant.find_by_id(id)
+		restaurant.destroy
+		redirect_to root_path, notice: "The restaurant was deleted"
+	end
+
 private
 
 	def restaurant_create_params

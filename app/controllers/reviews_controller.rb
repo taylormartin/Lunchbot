@@ -34,6 +34,15 @@ class ReviewsController < ApplicationController
 		end
 	end
 
+	def destroy
+		id = params["id"]
+		review = Review.find_by_id(id)
+		restaurant = review.restaurant
+		review.destroy
+		restaurant.refresh_avg_rating
+		redirect_to root_path, notice: "Your review was deleted"
+	end
+
 private
 
 	def review_create_params

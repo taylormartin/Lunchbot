@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   def get_unreviewed_restaurants
   	reviewed = self.reviews.map { |r| r.restaurant_id }
