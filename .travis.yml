@@ -7,6 +7,8 @@ script:
 services: postgresql
 addons:
   postgresql: "9.3"
+  code_climate:
+    repo_token: 7dc15a9256eba01ea8fe748827ce385fae50672d8a500d7159e8a065c0bbe879
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
