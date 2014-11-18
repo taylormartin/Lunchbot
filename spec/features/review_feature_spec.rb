@@ -30,4 +30,13 @@ feature 'Add review' do
 		expect(page).to have_content "Rating: 3.0"
 	end
 
+	it 'allows users to delete their reviews' do
+		review = create(:review, rating: 4, user_id: @user.id, restaurant_id: @restaurant.id)
+		visit reviews_path
+		expect(page).to have_content review.restaurant.name
+		click_on 'Delete'
+		expect(page).to have_content "Your review was deleted"
+		expect(Review.all.count).to eq 0
+	end
+
 end

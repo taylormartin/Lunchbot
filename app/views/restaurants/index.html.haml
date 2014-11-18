@@ -1,5 +1,7 @@
-- unless @restaurants == nil
+- if @restaurants == []
+	%h3 There aren't any restaurants in the database
+- else
 	- @restaurants.each do |restaurant|
 		%h3= "#{restaurant.name}"
 		%h4= "Avg Rating: #{restaurant.avg_rating}"
-		%h4= link_to "Delete Restaurant", restaurant, method: :delete, data: { confirm: "Are you sure you want to delete this restaurant?" }
+		%h4= link_to "Delete Restaurant", restaurant, method: :delete

@@ -15,4 +15,13 @@ feature 'Add restaurant' do
 		visit restaurants_path
 		expect(page).to have_content "Moes"
 	end
+
+	it 'allows users to delete restaurants' do
+		restaurant = create :restaurant
+		visit restaurants_path
+		expect(page).to have_content restaurant.name
+		click_on 'Delete'
+		expect(page).to have_content "The first thing you need to do is"
+		expect(Restaurant.all.count).to eq 0
+	end
 end
